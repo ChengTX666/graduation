@@ -1,0 +1,15 @@
+GET http://localhost:8080/api/teacher/processes
+
+###
+
+PATCH http://localhost:8080/api/admin/resetAll
+
+
+###
+POST http://localhost:8080/api/graduation/login
+Content-Type: application/json
+
+{
+  "account":"1",
+  "password":"123"
+}
