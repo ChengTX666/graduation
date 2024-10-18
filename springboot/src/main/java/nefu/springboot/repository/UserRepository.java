@@ -30,4 +30,6 @@ public interface UserRepository extends CrudRepository<User,String> {
     @Query("select * from user where cast(department->>'$.depId' as char(19))=:depId and role=:role and `group`=:group")
     List<User> findByDepIdAndRoleAndGroup(String depId,String role,int group);
 
+
+
 }

@@ -18,21 +18,19 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api/graduation/")
+@RequestMapping("/api/")
 @Slf4j
 @RequiredArgsConstructor
 public class UserController {
 
     private final UserService userService;
-    private final PasswordEncoder passwordEncoder;
-    private final ObjectMapper objectMapper;
-    private final JWTComponent jwtComponent;
-
-
-    @PostMapping("/reset")
-    public ResultVO resetPassword(@RequestAttribute("uid") String uid,@RequestBody String password){
-        userService.resetUser(uid,password);
+    @PostMapping("reset")
+    public ResultVO resetPassword(@RequestAttribute("uid") String uid,@RequestBody String newPassword){
+        userService.resetUser(uid,newPassword);
         return ResultVO.ok();
     }
-
+    @GetMapping("processes")
+    public ResultVO processList(@RequestAttribute("depId") String depId){
+        return ResultVO.success(Map.of("processes",userService.listProcess(depId)));
+    }
 }

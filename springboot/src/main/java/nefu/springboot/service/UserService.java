@@ -52,17 +52,10 @@ public class UserService {
 //        //还响应什么？？？？
 //        return ResultVO.success(Map.of("user", user));
 //    }
-    //get
+
+    //get登录验证时
      public User getUser(String account){
          return userRepository.findByAccount(account);
-    }
-    //自己专业的同学/老师
-
-    public List<User> getUsers(String depId,String role){
-         return userRepository.findByDepIdAndRole(depId,role);
-    }
-    public List<User> getUsers(String depId,String role,int group){
-         return userRepository.findByDepIdAndRoleAndGroup(depId, role, group);
     }
 
     //修改密码

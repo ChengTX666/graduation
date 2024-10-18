@@ -42,7 +42,14 @@ public class AdminService {
        departmentRepository.deleteById(did);
     }
 
-    //admin
+    //用户
+    public void addUser(User user){
+        userRepository.save(user);
+    }
+
+
+
+    //查看所有用户
     public List<User> allUsers(){
         return StreamSupport.stream(userRepository.findAll().spliterator(), false)
                 .collect(Collectors.toList());

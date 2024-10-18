@@ -4,10 +4,7 @@ import lombok.RequiredArgsConstructor;
 import nefu.springboot.dto.ResultVO;
 import nefu.springboot.service.TeacherService;
 import nefu.springboot.service.UserService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
@@ -18,11 +15,15 @@ public class TeacherController {
     private final TeacherService teacherService;
     private final UserService userService;
 
-    @GetMapping("processes")
-    public ResultVO processes(@RequestAttribute String depId)
-    {
-        return ResultVO.success(Map.of("processes",userService.listProcess(depId)));
+
+    //查看专业所有学生
+    @GetMapping("students")
+    public ResultVO studentList(@RequestAttribute("depId") String depId){
+        return ResultVO.success(Map.of("students",teacherService.studentList(depId)));
     }
-
-
+    //组内学生
+    @GetMapping("students/group")
+    public ResultVO studentGroup(@RequestAttribute("depId")String depId,@RequestAttribute("group")int group){
+        return ResultVO.success(Map.of("groupStudents",teacherService.groupStudents(depId, group)));
+    }
 }

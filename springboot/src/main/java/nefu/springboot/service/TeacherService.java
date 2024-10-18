@@ -3,6 +3,7 @@ package nefu.springboot.service;
 import lombok.RequiredArgsConstructor;
 import nefu.springboot.dox.Process;
 import nefu.springboot.dox.Score;
+import nefu.springboot.dox.User;
 import nefu.springboot.repository.ProcessRepository;
 import nefu.springboot.repository.ScoreRepository;
 import nefu.springboot.repository.UserRepository;
@@ -57,9 +58,14 @@ public class TeacherService {
 
     //得分
     //用户
+    //查看专业所有学生
+    public List<User> studentList(String depId){
+        return userRepository.findByDepIdAndRole(depId,student);
+    }
+
     //查看自己组的学生
-    public void groupStudents(String depId,int group){
-        userRepository.findByDepIdAndRoleAndGroup(depId,student,group);
+    public List<User> groupStudents(String depId,int group){
+       return userRepository.findByDepIdAndRoleAndGroup(depId,student,group);
     }
     //用户
 }
