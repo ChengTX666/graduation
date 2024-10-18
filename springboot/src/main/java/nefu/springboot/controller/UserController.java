@@ -34,4 +34,5 @@ public class UserController {
         userService.resetUser(uid,password);
         return ResultVO.ok();
     }
+
 }

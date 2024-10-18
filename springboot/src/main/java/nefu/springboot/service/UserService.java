@@ -64,17 +64,7 @@ public class UserService {
     public List<User> getUsers(String depId,String role,int group){
          return userRepository.findByDepIdAndRoleAndGroup(depId, role, group);
     }
-    //admin
-    public List<User> allUsers(){
-         return StreamSupport.stream(userRepository.findAll().spliterator(), false)
-                 .collect(Collectors.toList());
-    }
 
-    //初始化加密密码(管理员)
-    public void initPassword(String account){
-         String encodePassword=passwordEncoder.encode(account);
-         userRepository.updatePasswordByAccount(account,encodePassword);
-    }
     //修改密码
     public void resetUser(String account,String newPassword){
         userRepository.updatePasswordByAccount(account,passwordEncoder.encode(newPassword));

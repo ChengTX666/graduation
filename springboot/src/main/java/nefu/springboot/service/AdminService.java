@@ -2,20 +2,25 @@ package nefu.springboot.service;
 
 import lombok.RequiredArgsConstructor;
 import nefu.springboot.dox.Department;
+import nefu.springboot.dox.User;
 import nefu.springboot.dto.Code;
 import nefu.springboot.exception.XException;
 import nefu.springboot.repository.DepartmentRepository;
 import nefu.springboot.repository.UserRepository;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 @Service
 @RequiredArgsConstructor
 public class AdminService {
     private final DepartmentRepository departmentRepository;
     private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
     //添加专业
     @Transactional
     public Department addDepartment(Department department){
@@ -37,5 +42,16 @@ public class AdminService {
        departmentRepository.deleteById(did);
     }
 
+    //admin
+    public List<User> allUsers(){
+        return StreamSupport.stream(userRepository.findAll().spliterator(), false)
+                .collect(Collectors.toList());
+    }
+
+    //初始化加密密码(管理员)
+    public void initPassword(String account){
+        String encodePassword=passwordEncoder.encode(account);
+        userRepository.updatePasswordByAccount(account,encodePassword);
+    }
 
 }
