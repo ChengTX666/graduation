@@ -19,4 +19,9 @@ public class StudentService {
     private final UserRepository userRepository;
     private final ProcessRepository processRepository;
     private final ScoreRepository scoreRepository;
+
+    //选择导师
+    public void chooseMentor(String sid,String tid){
+
+    }
 }

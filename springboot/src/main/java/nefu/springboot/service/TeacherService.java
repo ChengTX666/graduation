@@ -7,6 +7,7 @@ import nefu.springboot.dox.User;
 import nefu.springboot.repository.ProcessRepository;
 import nefu.springboot.repository.ScoreRepository;
 import nefu.springboot.repository.UserRepository;
+import org.apache.xmlbeans.impl.xb.xsdschema.Attribute;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -66,6 +67,10 @@ public class TeacherService {
     //查看自己组的学生
     public List<User> groupStudents(String depId,int group){
        return userRepository.findByDepIdAndRoleAndGroup(depId,student,group);
+    }
+    //自己辅导的学生
+    public List<User> mentorStudents(String depId,String tid){
+        return userRepository.mentorStudents(depId,tid);
     }
     //用户
 }
