@@ -33,6 +33,7 @@ public interface UserRepository extends CrudRepository<User,String> {
 
     @Query("select * from user u where department->>'$.depId'=:depId and student->>'$.teacherId'=:tid")
     List<User> mentorStudents(String depId,String tid);
+
     @Modifying
     @Query("update user u set student=json_set(student,'$.teacherId',:tid) where id=:sid")
     void updateStudentById(String sid,String tid);

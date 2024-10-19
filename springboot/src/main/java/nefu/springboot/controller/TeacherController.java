@@ -47,7 +47,12 @@ public class TeacherController {
 
 
     //添加分数
-    @PostMapping("score")
+    @GetMapping("scores")
+    public ResultVO listScore(){
+
+    }
+
+    @PostMapping("scores")
     public ResultVO addScore(Score score){
         return ResultVO.success(Map.of("score",teacherService.addScore(score)));
     }
