@@ -52,8 +52,12 @@ public class TeacherService {
         return scoreRepository.updateDetailById(score.getId(),score.getDetail());
     }
     //查看自己组学生的得分
-    public List<Score> listScore(int group){
+    public List<Score> scoreGroup(int group){
         return scoreRepository.findScoresByGroup(group);
+    }
+    //查看自己打的分
+    public List<Score> scoreList(String tid){
+        return scoreRepository.findScoresByTid(tid);
     }
 
 

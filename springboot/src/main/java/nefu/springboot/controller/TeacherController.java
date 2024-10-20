@@ -46,14 +46,23 @@ public class TeacherController {
     }
 
 
-    //添加分数
-    @GetMapping("scores")
-    public ResultVO listScore(){
+    //查看自己打的分数
 
+    @GetMapping("scores")
+    public ResultVO listScore(@RequestAttribute("uid") String tid){
+        return ResultVO.success(Map.of("scores",teacherService.scoreList(tid)));
+    }
+    //查看自己组的分数
+    @GetMapping("scores/group")
+    public ResultVO scoreGroup(@RequestAttribute int group){
+        return ResultVO.success(Map.of("scores",teacherService.scoreGroup(group)));
     }
 
+    //打分
     @PostMapping("scores")
     public ResultVO addScore(Score score){
         return ResultVO.success(Map.of("score",teacherService.addScore(score)));
     }
+
+
 }

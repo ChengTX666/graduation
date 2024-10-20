@@ -25,5 +25,6 @@ public interface ScoreRepository extends CrudRepository<Score,String> {
     @Query("SELECT * from score where `group`=:group")
     public List<Score> findScoresByGroup(int group);
 
-
+    @Query("SELECT * from score where teacher->>'$.teacherId'=:tid")
+    public List<Score> findScoresByTid(String tid);
 }
