@@ -17,7 +17,7 @@ public interface UserRepository extends CrudRepository<User,String> {
 
     @Modifying
     @Query("UPDATE user u set u.password=:encodePassword where u.id=:uid")
-    void updatePasswordByAccount(String uid,String encodePassword);
+    void updatePasswordById(String uid,String encodePassword);
 
 
     @Query("select count(*) from user where department->>'$.depId'=:did")
