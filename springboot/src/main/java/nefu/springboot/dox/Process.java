@@ -1,5 +1,6 @@
 package nefu.springboot.dox;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -23,8 +24,10 @@ public class Process {
     private int weight;
     private String parts;
     private String addPart;
+    @JsonIgnore
     @ReadOnlyProperty
     private LocalDateTime createTime;
+    @JsonIgnore
     @ReadOnlyProperty
     private LocalDateTime updateTime;
 }

@@ -1,5 +1,6 @@
 package nefu.springboot.dox;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -22,14 +23,17 @@ public class User {
     private String id;
     private String name;
     private String account;
+    @JsonIgnore
     private String password;
     private String role;
     private String department;
     private int group;
     private String teacher;
     private String student;
+    @JsonIgnore
     @ReadOnlyProperty
     private LocalDateTime createTime;
+    @JsonIgnore
     @ReadOnlyProperty
     private LocalDateTime updateTime;
 }
