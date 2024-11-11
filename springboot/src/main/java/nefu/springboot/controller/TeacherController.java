@@ -16,8 +16,6 @@ import java.util.Map;
 public class TeacherController {
     private final TeacherService teacherService;
     private final UserService userService;
-
-
     //查看专业所有学生
     @GetMapping("students")
     public ResultVO studentList(@RequestAttribute("depId") String depId){
@@ -28,7 +26,7 @@ public class TeacherController {
     public ResultVO studentGroup(@RequestAttribute("depId")String depId,@RequestAttribute("group")int group){
         return ResultVO.success(Map.of("groupStudents",teacherService.groupStudents(depId, group)));
     }
-    //辅导学生
+    //辅导的学生
     @GetMapping("students/mentor")
     public ResultVO studentMentor(@RequestAttribute("depId")String depId,@RequestAttribute("uid") String uid){
 
@@ -46,12 +44,15 @@ public class TeacherController {
     }
 
 
+    //查看自己组学生的得分
+//    @GetMapping("scores")
+//    public ResultVO listScore(){
+//        return ResultVO.success(Map.of("scores",teacherService.groupStudents()))
+//    }
+
+
+
     //添加分数
-    @GetMapping("scores")
-    public ResultVO listScore(){
-
-    }
-
     @PostMapping("scores")
     public ResultVO addScore(Score score){
         return ResultVO.success(Map.of("score",teacherService.addScore(score)));

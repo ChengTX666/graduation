@@ -35,7 +35,7 @@ public class LoginController {
     public ResultVO login(@RequestBody Login login, HttpServletResponse resp) {
         User user = userService.getUser(login.getAccount());
 
-        if (user == null || passwordEncoder.matches(login.getPassword(), user.getPassword())) {
+        if (user == null || !passwordEncoder.matches(login.getPassword(), user.getPassword())) {
             return ResultVO.error(401, "用户名或密码错误");
         }
 

@@ -14,7 +14,7 @@ import org.springframework.data.annotation.Id;
 public class Score {
     @CreatedBy
     @Id
-    private String id;
+    private String id;//自己生成
     private String studentId;
     private String processId;
     private int group;

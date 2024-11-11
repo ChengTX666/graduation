@@ -20,14 +20,14 @@ public interface UserRepository extends CrudRepository<User,String> {
     void updatePasswordByAccount(String account,String encodePassword);
 
 
-    @Query("select count(*) from user  where cast(department->>'$.depId' as char(19))=:did")
+    @Query("select count(*) from user where department->>'$.depId'=:did")
     Integer countByDepartment(String did);
 
 
-    @Query("select * from user where cast(department->>'$.depId' as char(19))=:depId and role=:role")
+    @Query("select * from user where department->>'$.depId'=:depId and role=:role")
     List<User> findByDepIdAndRole(String depId,String role);
 
-    @Query("select * from user where cast(department->>'$.depId' as char(19))=:depId and role=:role and `group`=:group")
+    @Query("select * from user where department->>'$.depId'=:depId and role=:role and `group`=:group")
     List<User> findByDepIdAndRoleAndGroup(String depId,String role,int group);
 
 

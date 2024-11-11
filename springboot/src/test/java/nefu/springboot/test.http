@@ -1,8 +1,11 @@
 GET http://localhost:8080/api/teacher/processes
+Content-Type: application/json
+token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiIxIiwicm9sZSI6IjEiLCJkZXBJZCI6IjEiLCJleHAiOjE3MzEyNDc1MDMsImlhdCI6MTczMTI0NzUxOSwiZ3JvdXAiOjF9.KxzT5nlGpjyAv0eQNVvKcWqnpgf78SEWMk_cnjeFS1M
 
 ###
 
 PATCH http://localhost:8080/api/admin/resetAll
+token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiIxIiwicm9sZSI6IjEiLCJkZXBJZCI6IjEiLCJleHAiOjE3MzEyNDc1MDMsImlhdCI6MTczMTI0NzUxOSwiZ3JvdXAiOjF9.KxzT5nlGpjyAv0eQNVvKcWqnpgf78SEWMk_cnjeFS1M
 
 
 ###
@@ -11,5 +14,5 @@ Content-Type: application/json
 
 {
   "account":"1",
-  "password":"123"
+  "password":"1"
 }

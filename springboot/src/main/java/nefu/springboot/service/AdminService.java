@@ -18,10 +18,11 @@ import java.util.stream.StreamSupport;
 @Service
 @RequiredArgsConstructor
 public class AdminService {
+
     private final DepartmentRepository departmentRepository;
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
-    //添加专业
+//    添加专业
     @Transactional
     public Department addDepartment(Department department){
         return departmentRepository.save(department);
@@ -46,9 +47,6 @@ public class AdminService {
     public void addUser(User user){
         userRepository.save(user);
     }
-
-
-
     //查看所有用户
     public List<User> allUsers(){
         return StreamSupport.stream(userRepository.findAll().spliterator(), false)
