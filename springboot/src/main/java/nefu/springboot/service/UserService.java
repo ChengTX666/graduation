@@ -59,8 +59,8 @@ public class UserService {
     }
 
     //修改密码
-    public void resetUser(String account,String newPassword){
-        userRepository.updatePasswordByAccount(account,passwordEncoder.encode(newPassword));
+    public void resetUser(String uid,String newPassword){
+        userRepository.updatePasswordByAccount(uid,passwordEncoder.encode(newPassword));
     }
     public List<Process> listProcess(String depId) {
         return processRepository.findByDepId(depId);
