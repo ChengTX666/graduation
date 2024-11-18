@@ -34,4 +34,6 @@ public class StudentService {
     public void chooseMentor(String sid,String tid){
         userRepository.updateStudentById(sid, tid);
     }
+    //抢老师
+
 }

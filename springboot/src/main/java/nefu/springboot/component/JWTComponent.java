@@ -18,7 +18,7 @@ import java.util.Map;
 
 @Component
 public class JWTComponent {
-    private final LocalDateTime time=LocalDateTime.now().plusSeconds(10);
+    private final LocalDateTime time=LocalDateTime.now().plusDays(30);
     @Value("${my.key}")
     private String key;
     private Algorithm algorithm;

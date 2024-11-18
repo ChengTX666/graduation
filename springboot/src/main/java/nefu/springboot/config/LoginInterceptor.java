@@ -4,6 +4,7 @@ import com.auth0.jwt.interfaces.DecodedJWT;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import nefu.springboot.component.JWTComponent;
 import nefu.springboot.dto.Code;
 import nefu.springboot.exception.XException;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 @Component
 @RequiredArgsConstructor
+@Slf4j
 public class LoginInterceptor implements HandlerInterceptor {
     private final JWTComponent jwtComponent;
 

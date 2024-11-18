@@ -12,7 +12,7 @@ import java.util.Map;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/teacher/")
+@RequestMapping("/api/graduation/teacher/")
 public class TeacherController {
     private final TeacherService teacherService;
     private final UserService userService;

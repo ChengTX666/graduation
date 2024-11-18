@@ -16,3 +16,7 @@ Content-Type: application/json
   "account":"1",
   "password":"1"
 }
+###
+GET http://localhost:8080/api/graduation/processes
+Content-Type: application/json
+token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiIxIiwicm9sZSI6IlIybWQiLCJkZXBJZCI6IjEiLCJleHAiOjE3MzQ0MDcwODgsImlhdCI6MTczMTgxNTA5MiwiZ3JvdXAiOjF9.8hew8FbX8EI9fqnhCx27vtihtPd5xnRUSqILuuvNpJs
