@@ -35,5 +35,8 @@ public class StudentService {
         userRepository.updateStudentById(sid, tid);
     }
     //抢老师
+    public void qiangMentor(){
+
+    }
 
 }
