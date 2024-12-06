@@ -34,5 +34,8 @@ public class LoginInterceptor implements HandlerInterceptor {
         request.setAttribute("depId",depId);
         request.setAttribute("group",group);
         return true;
+
+
+
     }
 }
